@@ -5,12 +5,6 @@ import tkinter.filedialog as filedialog
 from tkinter import messagebox
 
 
-def upload_image(path):
-    client = ImgurClient('ddcc8dbd63aee99', 'e03f8a161df5657e05d2d00152f672bf0da0df76')
-    image = client.upload_from_path(path, anon=True)
-    return image
-
-
 class Window(ttk.Frame):
 
     def __init__(self, master):
@@ -51,7 +45,7 @@ class Window(ttk.Frame):
 
     def choose_file(self, event):
         self.PathVar.set(filedialog.askopenfilename(initialdir="/", title="Select file",
-                                                   filetypes=(("jpeg files", "*.jpg"), ("all files", "*.*"))))
+                                                    filetypes=(("jpeg files", "*.jpg"), ("all files", "*.*"))))
 
     def upload_image(self, event):
         if self.PathVar.get() != '':
